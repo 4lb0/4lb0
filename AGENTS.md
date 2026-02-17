@@ -2,14 +2,13 @@
 
 ## Overview
 
-This is a simple, minimal personal link tree website for **albo.ar**. It's a
-single-page HTML site with no build step or dependencies.
+Personal homepage for **albo.ar** — a minimalist, text-based single-page site. No build step, no JavaScript, pure semantic HTML with inline CSS.
 
 ## Project Structure
 
 ```
 .
-├── index.html   # Main page - single file with inline CSS/JS
+├── index.html   # Main page - single file with inline CSS
 ├── CNAME        # GitHub Pages custom domain config (albo.ar)
 ├── LICENSE      # Project license
 └── README.md    # Human-readable project description
@@ -17,37 +16,66 @@ single-page HTML site with no build step or dependencies.
 
 ## Technology Stack
 
-- **Pure HTML/CSS/JavaScript** - No frameworks, no build tools
-- **Inline styles and scripts** - Everything is self-contained in `index.html`
+- **Pure HTML/CSS** - No frameworks, no build tools, no JavaScript
+- **Inline styles only** - Everything in `<style>` inside `index.html`
+- **Semantic HTML** - Uses `<h1>`, `<h2>`, `<ul>`, `<li>` appropriately
 - **GitHub Pages hosting** - Static site deployment
+- **Dark mode support** - Uses `color-scheme: light dark`
 
 ## Design Guidelines
 
-- **Minimalist aesthetic** - Clean, simple design
-- **Color scheme**:
-  - Background: `#9cd` (light blue)
-  - Buttons: `#fbe` (light pink) with `#420` (dark brown) borders
-  - Accent: `#ccc` with `#999` (for main branding link)
-  - Footer: `#420` (dark brown) background
-- **Responsive**: Uses flexbox with a media query for portrait/mobile
-  orientation
-- **Retro feel**: Uses box shadows for 3D button effect (`4px 4px 0 0`)
+- **Extreme minimalism** - Text-only aesthetic, no images except emoji favicon
+- **Typography**: Monospace font (`14pt monospace`), generous letter-spacing
+- **Layout**: Single column, max-width `80ch`, centered
+- **Color scheme**: 
+  - Respects system `light dark` preference
+  - Links: default browser colors with `font-weight: 900`
+  - No custom colors (removed the retro palette)
+- **Responsive**: Works on all viewports via `clamp()` font sizing
+- **No photos** - Emoji avatar (👨‍💻) maintains the text-based aesthetic
 
-## Adding/Modifying Links
+## Content Structure
 
-Links are added as `<a>` tags in `index.html`. Each link should have:
+The page is organized in sections:
 
-- `href` attribute with the URL
-- `data-t` attribute with a short description (shown in footer on hover)
-- Optional inline styles for custom colors
+1. **Header** (`<h1>`) - Name with emoji
+2. **Acerca de mí** - Personal bio, blog link, config/dotfiles
+3. **Proyectos** - Work, side projects, tools
+4. **Redes** - Social links
+5. **Libros** - Book recommendations
+
+## Adding/Modifying Content
+
+- Use semantic HTML: `<h2>` for sections, `<ul>` + `<li>` for lists
+- Links: `<a href="//domain.com">text</a>` (protocol-relative URLs)
+- Email: `<a href="mailto:albo@pragmore.com">albo@pragmore.com</a>`
+- RSS: `<a href="//blog.albo.ar/rss.xml">rss</a>`
+- Keep tone informal, in Argentinian Spanish (voseo)
+
+## Key Links to Know
+
+| Service | URL |
+|---------|-----|
+| Blog | blog.albo.ar (with /rss.xml) |
+| Email | albo@pragmore.com |
+| Config/dotfiles | github.com/4lb0/config |
+| Work | pausaco.com |
+| Freelance | pragmore.com |
+| Domains | domains.pragmore.com |
+| Framework | bialet.dev |
+| CSS lib | pragmore.com/blouse.css |
+| Mentor | mentor.dev.ar |
+| PM Skill | loro.dev.ar |
+| Subdomains | home.dev.ar |
+| Podcast | youtube.com/@NoParamosDeHablar |
 
 ## Deployment
 
-The site is deployed via GitHub Pages. Pushing to the main branch automatically
-deploys.
+GitHub Pages with custom domain `albo.ar`. Push to main deploys automatically.
 
 ## Code Style
 
-- Minified inline CSS and JavaScript (minimal whitespace)
-- Single-letter variable names in JS (minified style)
-- No external dependencies
+- No minification needed (small enough)
+- Minimal CSS (dark mode, typography, spacing only)
+- No JavaScript
+- Single file, no external assets except favicon SVG
